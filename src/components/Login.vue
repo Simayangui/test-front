@@ -1,7 +1,7 @@
 
 <template>
     <img class="logo" src="../assets/logoo.jpg" />
-    <h1> Login</h1>
+  <h1 class="text-center mb-4">Login</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -32,7 +32,6 @@ export default {
         const router = useRouter();
 
         const formState = {
-            
             email: '',
             password: ''
         };
@@ -44,17 +43,16 @@ export default {
                 let matchFound = false;
                 response.data.forEach(row => {
                     if (matchFound) return;
-                    if (formState.email.trim().toLowerCase() === row.email.trim().toLowerCase()) {
-                        if (formState.password.trim().toLowerCase() === row.mdp.trim().toLowerCase()) {
-                            router.push("/dashboard");
-                        } else {
-                            alert("mdp incorrecte");
-                        }
+                    if (formState.email.trim().toLowerCase() === row.email.trim().toLowerCase() &&
+                        formState.password.trim().toLowerCase() === row.mdp.trim().toLowerCase()) {
+                        router.push("/dashboard");
                         matchFound = true;
-                    } else {
-                        alert("vous n'aves pas de compte, creez un!");
                     }
                 });
+
+                if (!matchFound) {
+                    alert("Vous n'avez pas de compte, créez-en un !");
+                }
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -68,8 +66,10 @@ export default {
 };
 </script>
 <style>
-.logo{
-    width: 100px;
+.logo {
+  width: 100px;
+  margin: 0 auto; 
+  display: block; 
 }
 body {
   background-color: #f8f9fa;

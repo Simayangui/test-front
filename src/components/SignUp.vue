@@ -1,7 +1,7 @@
 
 <template>
     <img class="logo" src="../assets/logoo.jpg" />
-    <h1> Sign up</h1>
+    <h1 class="text-center mb-4">Sign up</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -60,8 +60,10 @@ export default {
 ;
 </script>
 <style>
-.logo{
-    width: 100px;
+.logo {
+  width: 100px;
+  margin: 0 auto; 
+  display: block; 
 }
 body {
   background-color: #f8f9fa;
@@ -108,5 +110,4 @@ body {
 .login-container form button:hover {
   background-color: #0056b3;
 }
-
   </style>
